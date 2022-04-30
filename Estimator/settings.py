@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 # SECRET_KEY ='django-insecure-jyd_=qtez+nid7ycyxs1)q-62n31l6%+u1n-@9=8w3e&%2%6az'
 # SECURITY WARNING: don't run with basementestimator.herokuapp.com/","http://127.0.0.1:8000/ debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -122,9 +122,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
