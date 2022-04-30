@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('signup/', views.sign_up, name ='signup'),
-    path('/', views.user_login, name ='login'),
+    path('', views.user_login, name ='login'),
     path('profile/', basement.addCustomer,),
    path('logout/', views.user_logout, name='logout'),
    path('get/', basement.getsession, ),
