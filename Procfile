@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT Estimator.wsgi:application
+web: gunicorn --bind 0.0.0.0:$PORT Estimator:app
