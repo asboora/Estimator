@@ -1,0 +1,7 @@
+h1 {
+    background-color: blue;
+}
+.hidethis {
+    display: none;
+    background-color: rgb(168, 101, 1);
+}
