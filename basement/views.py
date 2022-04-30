@@ -1,12 +1,7 @@
 
-from asyncio.windows_events import NULL
-import imp
-from statistics import variance
-from tkinter import Variable
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.paginator import Paginator
 from .models import Customer
 from .overview import barallowQuestion, bathallowQuestion, carpetQuestion, countertopQuestion, customerDetails, drywallQuestion, electricQuestion, electricQuestion1, finalQuestion, floorQuestion, framingQuestion, generalQuestion, insulationQuestion, miscallowQuestion, optionDetails, paintQuestion, plumbingQuestion , hvacQuestion,  plumbingQuestion2, tileQuestion, trimQuestion
 from django.contrib import messages
