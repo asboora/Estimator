@@ -26,7 +26,7 @@ urlpatterns = [
     path('', views.user_login, name ='login'),
     path('profile/', basement.addCustomer,),
    path('logout/', views.user_logout, name='logout'),
-   path('get/', basement.getsession, ),
+#    path('get/', basement.getsession, ),
     path('addData/', basement.addData ),
     path('1/', basement.addGeneral ),
     path('2/', basement.framing ),
