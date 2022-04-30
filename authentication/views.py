@@ -48,11 +48,11 @@ def profile(request):
     if request.user.is_authenticated:
         return render(request, 'profile.html', {'name': request.user})
     else:
-        return HttpResponseRedirect('/login')
+        return HttpResponseRedirect('/')
 
 
 
 
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect('/login')
+    return HttpResponseRedirect('/')

@@ -50,6 +50,7 @@ urlpatterns = [
     path('20/', basement.miscallow ),
     path('21/', basement.prefinal ),
     path('22/', basement.final ),
+    path('list/', basement.AllCustomer ),
     # path('obtain/', basement.obtain ),
     
 ]

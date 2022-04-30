@@ -1,0 +1,17 @@
+
+{% extends 'header.html' %}
+{% load render_table from basement %}
+{% load static %}
+{% block content %}
+
+<head>
+<h1> All Customers Data </h1>
+</head>
+<body>
+        {% render_table AllCustomer %}
+</body>
+
+
+<a href ='{% url 'logout' %}'> Logout</a>
+</html>
+{% endblock %}

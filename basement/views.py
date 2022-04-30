@@ -1294,7 +1294,7 @@ def final(request):
 
         messages.success(request,'Data added successfully')              
         fm23.save()
-        return render(request, 'getsession.html',
+        return render(request, 'list.html',
     {'name':name,
     'address':address,
     'contact': contact,
@@ -1370,120 +1370,123 @@ def final(request):
 #     else:
 #         fm3 = questionDetails()
 #     return render(request, 'obtain.html',{'form':fm3})
+def AllCustomer(request):
+    AllCustomers = Customer.objects.all()
+    return render(request, 'list.html', locals())
 
-def getsession(request):
-    name = request.session['customerName']
-    address = request.session['customerAddress']
-    contact = request.session['customerContact']
-    Email = request.session['customerEmail']
-    a = a         
-    b = b        
-    c = c         
-    d = d         
-    e = e         
-    f = f         
-    g = g       
-    h = h      
-    i = i         
-    j = j         
-    k = k         
-    l = l         
-    m = m         
-    n = n         
-    o = o         
-    p = p         
-    q = q         
-    r = r      
-    s = s         
-    t = t
-    u = u         
-    v   = v
-    w   = w         
-    x   = x
-    y   = y       
-    z   = z     
-    aa = aa       
-    bb = bb       
-    cc = cc       
-    dd = dd
-    ee = ee
-    ff = ff
-    gg = gg
-    hh = hh
-    ii = ii
-    jj = jj
-    kk = kk    
-    ll = ll    
-    mm = mm    
-    nn = nn    
-    oo = oo    
-    pp = pp
-    qq = qq
-    rr = rr
-    ss = ss
-    tt = tt
-    uu = uu
-    vv = vv
-    ww = ww
-    xx = xx
-    yy = yy
+# def getsession(request):
+#     name = request.session['customerName']
+#     address = request.session['customerAddress']
+#     contact = request.session['customerContact']
+#     Email = request.session['customerEmail']
+#     a = a         
+#     b = b        
+#     c = c         
+#     d = d         
+#     e = e         
+#     f = f         
+#     g = g       
+#     h = h      
+#     i = i         
+#     j = j         
+#     k = k         
+#     l = l         
+#     m = m         
+#     n = n         
+#     o = o         
+#     p = p         
+#     q = q         
+#     r = r      
+#     s = s         
+#     t = t
+#     u = u         
+#     v   = v
+#     w   = w         
+#     x   = x
+#     y   = y       
+#     z   = z     
+#     aa = aa       
+#     bb = bb       
+#     cc = cc       
+#     dd = dd
+#     ee = ee
+#     ff = ff
+#     gg = gg
+#     hh = hh
+#     ii = ii
+#     jj = jj
+#     kk = kk    
+#     ll = ll    
+#     mm = mm    
+#     nn = nn    
+#     oo = oo    
+#     pp = pp
+#     qq = qq
+#     rr = rr
+#     ss = ss
+#     tt = tt
+#     uu = uu
+#     vv = vv
+#     ww = ww
+#     xx = xx
+#     yy = yy
 
-    return render(request, 'getsession.html',
-    {'name':name,
-    'address':address,
-    'contact': contact,
-    'Email':Email,
-        'a': a,
-        'b': b,
-        'c': c,
-        'd': d,
-        'e': e,
-        'f': f,
-        'g': g,
-        'h': h,
-        'i': i,
-        'j': j,
-        'k': k,
-        'l': l,
-        'm': m,
-        'n': n,
-        'o': o,
-        'p': p,
-        'q': q,
-        'r': r,
-        's': s,
-        't': t,
-        'u': u,
-        'v': v,
-        'w': w,
-        'x': x,
-        'y': y,
-        'z': z,
-        'aa' : aa,
-        'bb' : bb,
-        'cc' : cc,
-        'dd' : dd,
-        'ee' : ee,
-        'ff' : ff,
-        'gg' : gg,
-        'hh' : hh,
-        'ii' : ii,
-        'jj' : jj,
-        'kk' : kk,
-        'll' : ll,
-        'mm' : mm,
-        'nn' : nn,
-        'oo' : oo,
-        'pp' : pp,
-        'qq' : qq,
-        'rr' : rr,
-        'ss' : ss,
-        'tt' : tt,
-        'uu' : uu,
-        'vv' : vv,
-        'ww' : ww,
-        'xx' : xx,
-        'yy' : yy,})
+#     return render(request, 'getsession.html',
+#     {'name':name,
+#     'address':address,
+#     'contact': contact,
+#     'Email':Email,
+#         'a': a,
+#         'b': b,
+#         'c': c,
+#         'd': d,
+#         'e': e,
+#         'f': f,
+#         'g': g,
+#         'h': h,
+#         'i': i,
+#         'j': j,
+#         'k': k,
+#         'l': l,
+#         'm': m,
+#         'n': n,
+#         'o': o,
+#         'p': p,
+#         'q': q,
+#         'r': r,
+#         's': s,
+#         't': t,
+#         'u': u,
+#         'v': v,
+#         'w': w,
+#         'x': x,
+#         'y': y,
+#         'z': z,
+#         'aa' : aa,
+#         'bb' : bb,
+#         'cc' : cc,
+#         'dd' : dd,
+#         'ee' : ee,
+#         'ff' : ff,
+#         'gg' : gg,
+#         'hh' : hh,
+#         'ii' : ii,
+#         'jj' : jj,
+#         'kk' : kk,
+#         'll' : ll,
+#         'mm' : mm,
+#         'nn' : nn,
+#         'oo' : oo,
+#         'pp' : pp,
+#         'qq' : qq,
+#         'rr' : rr,
+#         'ss' : ss,
+#         'tt' : tt,
+#         'uu' : uu,
+#         'vv' : vv,
+#         'ww' : ww,
+#         'xx' : xx,
+#         'yy' : yy,})
 
 
 
