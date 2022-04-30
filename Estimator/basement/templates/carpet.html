@@ -1,0 +1,23 @@
+
+{% extends 'header.html' %}
+
+{% block content %}
+
+<div>
+    <form action="" method="post" novalidate>
+    {% csrf_token %}        
+    {% for fm17 in form %}
+    {{fm17.label_tag}}
+        {{fm17}}
+    {% endfor %} 
+    
+    <input type='submit' value = "Submit">
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+    <small {% if messages.tags %} class = '{{ messages.tags }}' {% endif %}>{{message}}</small>
+    {% endfor %}
+    {% endif %}
+</div>
+   
+{% endblock %}

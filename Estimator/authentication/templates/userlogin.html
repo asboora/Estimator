@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Registration</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        {% for error in  form.non_field_errors %}
+        {{error}}
+        {% endfor %}
+        {% endif %}
+        {% for fm2 in form %}
+            {{fm2.label_tag}}
+            {{fm2}}
+            {{fm2.errors|striptags}} <br><br>
+        {% endfor %}
+        
+        <input type='submit' value = "Submit">
+        </form>
+        
+    </body>
+</html>

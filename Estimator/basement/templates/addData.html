@@ -1,0 +1,27 @@
+{% extends 'header.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Add Customer</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=0">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% for fm0 in form %}
+        {{fm0}}
+        {{fm0.label_tag}}<br>
+        {{fm0.errors|striptags}}
+        {% endfor %} 
+        <input type='submit' value = "Submit">
+        </form>
+    </body>
+  
+</html>
+{% endblock %}

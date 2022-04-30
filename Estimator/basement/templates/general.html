@@ -1,0 +1,33 @@
+
+{% extends 'header.html' %}
+
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>General Details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
+    <link rel="stylesheet" href="">
+</head>
+<div>
+    <form action="" method="post" novalidate>
+    {% csrf_token %}    
+    <h1> General Details </h1>    
+    {% for fm1 in form %}
+    {{fm1.label_tag}}
+        {{fm1}}
+        {{fm1.errors|striptags}}
+    {% endfor %} 
+    
+    <input type='submit' value = "Submit">
+    </form>
+    
+    {% if messages %}
+    {% for message in messages %}
+    <small {% if messages.tags %} class = '{{ messages.tags }}' {% endif %}>{{message}}</small>
+    {% endfor %}
+    {% endif %}
+</div>
+   
+{% endblock %}

@@ -1,0 +1,56 @@
+
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<head>     
+    <title>Tile Details</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/app.js' %}"></script>        
+</head>
+<div>
+    <form action="" method="post" novalidate>
+    {% csrf_token %}   
+    <div onclick = "hidefunction('hidethis')">
+    {{form.Tile_floor.label_tag}}
+    {{form.Tile_floor}}<br>
+    </div>
+
+    <div id ='hidethis' class ='hidethis'>
+        {{form.Tile_floor_sqft.label_tag}}
+        {{form.Tile_floor_sqft}}<br>
+    </div>
+
+
+    <div onclick = "hidefunction('backsplash')">
+    {{form.Tile_Backsplash.label_tag}}
+    {{form.Tile_Backsplash}}<br>
+    </div>
+
+    
+
+    <div id ='backsplash' class ='hidethis'>
+        {{form.Tile_Backsplash_sqft.label_tag}}
+        {{form.Tile_Backsplash_sqft}}<br>
+    </div>
+
+    <div onclick = "hidefunction('shower')">
+    {{form.Tile_Shower.label_tag}}
+    {{form.Tile_Shower}}<br>
+    </div>
+
+
+    <div id ='shower' class ='hidethis'>
+    {{form.Tile_Shower_sqft.label_tag}}
+    {{form.Tile_Shower_sqft}}<br>
+    </div>
+    
+    <input type='submit' value = "Submit">
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+    <small {% if messages.tags %} class = '{{ messages.tags }}' {% endif %}>{{message}}</small>
+    {% endfor %}
+    {% endif %}
+</div>
+   
+{% endblock %}

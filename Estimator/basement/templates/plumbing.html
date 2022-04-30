@@ -1,0 +1,59 @@
+{% extends 'header.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div>
+    <head>     
+        <title>Plumbing Details</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <script src="{% static 'js/app.js' %}"></script>        
+    </head>
+    
+    <div>
+        
+        <form action="" method="post">
+        {% csrf_token %}    
+        <h1>Plumbing Details </h1>    
+        {% comment %} {% for fm4 in form %}
+        {{fm4.label_tag}}
+            {{fm4}}
+        {% endfor %}  {% endcomment %}
+        
+
+        
+        {{form.Cast_Iron_Pipe_Connection.label_tag}}
+        {{form.Cast_Iron_Pipe_Connection}}<br>
+        
+        
+        {{form.ConcreteRemoval.label_tag}}
+        <div onclick = "hidefunction('hidethis')">
+        {{form.ConcreteRemoval}}<br>
+        </div>
+        <div id ='hidethis' class ='hidethis'>
+        {{form.Concrete_to_be_Broken.label_tag}}
+        {{form.Concrete_to_be_Broken}}<br>
+        </div>
+
+        {{form.Plumbing_Correct_Location.label_tag}}
+        {{form.Plumbing_Correct_Location}}<br>
+        
+        {{form.LF_of_Underground.label_tag}}
+        {{form.LF_of_Underground}}<br>
+
+        {{form.Rough_In_Water_Lines.label_tag}}
+        {{form.Rough_In_Water_Lines}}<br>
+
+        <input type='submit' value = "Submit">
+        </form>
+        {% if messages %}
+        {% for message in messages %}
+        <small {% if messages.tags %} class = '{{ messages.tags }}' {% endif %}>{{message}}</small>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+
+    
+{% endblock %}
