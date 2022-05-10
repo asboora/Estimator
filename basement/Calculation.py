@@ -1666,7 +1666,7 @@ def final(request):
         'Paint': totalPaintEstimate,
         'Countertop': totalCountertopEstimate,
         'Floor': totalFloorEstimate,
-        'Carpet': totalCarpetEstimate
+       
 
         })
         return HttpResponse(totalEstimate)
