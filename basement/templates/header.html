@@ -1,7 +1,189 @@
 
-<h1> Welcome {{user}}</h1>
-<a href ='{% url 'logout' %}'> Logout</a>
 
+{% load static %}
+<div>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0">
+        <link rel="stylesheet" type= 'text/css'href="{% static 'css/style1.css' %}">
+        {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> {% endcomment %}
+
+    <body>
+        {% comment %} <input type="checkbox" id="check"> {% endcomment %}
+        {% comment %} <label for="check">
+          <i class="fas fa-bars" id="btn"></i>
+          <i class="fas fa-times" id="cancel"></i>
+        </label> {% endcomment %}
+        <ul class="sidebar nav-list">
+          <header>Welcome   {{ user}}</header>
+          </li>
+          <li class="active">
+          <a href='{% url 'profile' %}' >
+            <i class="1"></i>
+            <span>Customer</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'Customer' %}' >
+            <i class="1"></i>
+            <span>General</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'framing' %}'>
+            <i class="2"></i>
+            <span>Framing</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'hvac' %}'>
+            <i class="3"></i>
+            <span>HVAC</span>
+          </a>
+          </li>
+          <li >
+          <a href="{% url 'plumbing' %}" >
+             <i class="4"></i>
+            <span>Plumbing</span>
+          </a>
+          </li>
+          <li >
+          <a href="{% url 'electric' %}" >
+            <i class="5"></i>
+            <span>Electrical</span>
+          </a>
+          </li>
+          <li >
+          <a href="{% url 'insulation' %}" >
+            <i class="6"></i>
+            <span>Insulation</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'drywall' %}' >
+            <i class="7"></i>
+            <span>Drywall</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'trim' %}' >
+            <i class="8"></i>
+            <span>Trim</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'paint' %}' >
+            <i class="9"></i>
+            <span>Paint</span>
+          </a>
+          {% comment %} </li>
+          <li >
+          <a href='{% url 'cabinet' %}'>
+            <i class="10"></i>
+            <span>Cabinet</span>
+          </a> {% endcomment %}
+          </li>
+          <li >
+          <a href="{% url 'countertop' %}" >
+             <i class="11"></i>
+            <span>Countertops</span>
+          </a>
+          </li>
+          <li >
+          <a href="{% url 'tile' %}" >
+            <i class="12"></i>
+            <span>Tile</span>
+          </a>
+          </li>
+          <li >
+          <a href="{% url 'floor' %}" >
+            <i class="13"></i>
+            <span>Flooring</span>
+          </a>
+          </li>
+          {% comment %} <li >
+           <a href='{% url 'carpet' %}' >
+            <i class="14"></i>
+            <span>Carpet</span>
+          </a>
+          </li> 
+          <li > {% endcomment %}
+          <a href='{% url 'bathallow' %}' >
+            <i class="15"></i>
+            <span>Bath Allowance</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'barallow' %}' >
+            <i class="16"></i>
+            <span>Bar Allwance</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'prefinal' %}'>
+            <i class="17"></i>
+            <span>Final Install</span>
+          </a>
+          </li>
+          <li >
+          <a href="#" >
+             <i class="18"></i>
+            <span>Misc Materials</span>
+          </a>
+          </li>
+          <li >
+          <a href='{% url 'logout' %}' >
+            <i class="19"></i>
+            <span>Logout</span>
+          </a>
+          </li>
+        </ul>   
+        
+{% comment %} 
+
+2nd Navigation bar
+
+        <div class="sidebar1" >
+             <header>Welcome {{user}}</header>
+            <a href='{% url 'profile' %}' class="active1">
+              <i class="fas fa-qrcode"></i>
+              <span>General</span>
+            </a>
+            <a href='{% url 'addData' %}'>
+              <i class="fas fa-link"></i>
+              <span>Framing</span>
+            </a>
+            <a href='{% url '1' %}'>
+              <i class="fas fa-stream"></i>
+              <span>HVAC</span>
+            </a>
+            <a href="#">
+               <i class="fas fa-calendar"></i>
+              <span>Plumbing</span>
+            </a>
+            <a href="#">
+              <i class="far fa-question-circle"></i>
+              <span>Electrical</span>
+            </a>
+            <a href="#">
+              <i class="fas fa-sliders-h"></i>
+              <span>Services</span>
+            </a>
+            <a href='{% url 'logout' %}'>
+              <i class="far fa-envelope"></i>
+              <span>Logout</span>
+            </a>
+          </div>    {% endcomment %}
+    </body>
+</div>
+<script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.sidebar li a').filter(function(){return this.href==location.href}).addClass('active').siblings().removeClass('active')
+    $('.sidebar li a').click(function(){
+        $(this).addClass('active').siblings().removeClass('active')    
+    })
+})
+</script>
 {% block content %}
 
 {% endblock %}     

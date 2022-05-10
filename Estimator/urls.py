@@ -15,41 +15,47 @@ Including another URLconf
 """
 import imp
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from basement.Views import addCustomer,permit,framing, hvac, plumbing, electric, insulation , drywall, trim, paint,countertop,tile, floor
+
 from basement import views as basement
 from authentication import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
+       
     path('admin/', admin.site.urls),
-
+    # path('api/user/', include('account.urls')),
     path('signup/', views.sign_up, name ='signup'),
     path('', views.user_login, name ='login'),
-    path('profile/', basement.addCustomer,),
+    path('profile/', addCustomer.addCustomer, name='profile'),
    path('logout/', views.user_logout, name='logout'),
    path('get/', basement.getsession, ),
-    path('addData/', basement.addData ),
-    path('1/', basement.addGeneral ),
-    path('2/', basement.framing ),
-    path('3/', basement.hvac ),
-    path('4/', basement.plumbing ),
+     path('addData/', permit.addData ,name= 'Customer'),
+   
+    path('2/', framing.framing,name= 'framing' ),
+    path('3/', hvac.hvac,name= 'hvac'),
+    path('4/', plumbing.plumbing,name= 'plumbing' ),
     # path('5/', basement.plumbing1 ),
-    path('6/', basement.plumbing2 ),
-    path('7/', basement.electric ),
-    path('8/', basement.electric1 ),
-    path('9/', basement.insulation ),
-    path('10/', basement.drywall ),
-    path('11/', basement.trim ),
-    path('12/', basement.paint ),
-    path('13/', basement.countertop),
-    path('14/', basement.tile ),
+    # path('6/', basement.plumbing2,name= 'plumbing2' ),
+    path('7/', electric.electric,name= 'electric' ),
+    # path('8/', basement.electric1,name= 'electric1' ),
+    path('9/', insulation.insulation,name= 'insulation' ),
+    path('10/', drywall.drywall,name= 'drywall' ),
+    path('11/', trim.trim,name= 'trim' ),
+    path('12/', paint.paint,name= 'paint' ),
+    path('13/', countertop.countertop,name= 'countertop'),
+    path('14/', tile.tile,name= 'tile' ),
     # path('15/', basement.tile1 ),
-    path('16/', basement.floor ),
-    path('17/', basement.carpet ),
-    path('18/', basement.bathallow ),
-    path('19/', basement.barallow ),
-    path('20/', basement.miscallow ),
-    path('21/', basement.prefinal ),
-    path('22/', basement.final ),
+    path('16/', floor.floor,name= 'floor' ),
+    # path('17/', basement.carpet,name= 'carpet' ),
+    path('18/', basement.bathallow,name= 'bathallow' ),
+    path('19/', basement.barallow,name= 'barallow' ),
+    path('20/', basement.miscallow,name= 'miscallow' ),
+    path('21/', basement.prefinal,name= 'prefinal' ),
+    path('22/', basement.final,name= 'final' ),
     # path('obtain/', basement.obtain ),
     
 ]
+urlpatterns += staticfiles_urlpatterns()

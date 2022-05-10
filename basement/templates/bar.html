@@ -1,14 +1,16 @@
 
 {% extends 'header.html' %}
-
+{% load static %}
 {% block content %}
 
-<div>
+
+<link rel="stylesheet" type = "text/css" href="{% static 'css/style1.css' %}"> 
+<div class ="mainarea" >
     <form action="" method="post" novalidate>
     {% csrf_token %}        
     {% for fm in form %}
     {{fm.label_tag}}
-        {{fm}}
+        {{fm}}<br><br>
     {% endfor %} 
     
     <input type='submit' value = "Submit">

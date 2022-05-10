@@ -1,7 +1,3 @@
-from cProfile import label
-import email
-import imp
-from logging import PlaceHolder
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms

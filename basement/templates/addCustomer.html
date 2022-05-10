@@ -1,26 +1,53 @@
+{% extends 'header.html'  %}
+{% load static %}
 
-{% extends 'header.html' %}
 
 {% block content %}
 
-<div>
-    <form action="" method="post" novalidate>
-    {% csrf_token %}        
-    {% for fm in form %}
-    {{fm.label_tag}}
-        {{fm}}
-        {{fm.errors|striptags}}
-    {% endfor %} 
+    <div class ="mainarea" >
+        
+        <link rel="stylesheet" type = "text/css" href="{% static 'css/style1.css' %}">
+        <form  action="" method="post" >
+            <table class="xyz">
+            {% csrf_token %}
+            {{ form.as_p }} 
+            {% comment %} {% for fm in form %}
+            {{fm.label_tag}}
+            {{fm}}
+            <br><br>
+            {{fm.errors|striptags}} {% endcomment %}
+            {% comment %} {% endfor %}  {% endcomment %}
+            </table>
+            <input  type='submit'  value = "Submit">
+            
+            </form>
+    </div>
     
-    <input type='submit' value = "Submit">
-    </form>
 
-
+   
     {% if messages %}
     {% for message in messages %}
     <small {% if messages.tags %} class = '{{ messages.tags }}' {% endif %}>{{message}}</small>
     {% endfor %}
     {% endif %}
-</div>
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/savy.min.js' %}"></script>
+    <script type="text/javascript">
+
+        //$('.auto-save').savy('load') --> can be used without callback
+       
+        $('.auto-save').savy('load',function(){
+             console.log("All data from savy are loaded");
+        });
+            
+        
+        function dstry(){
+          //$('.auto-save').savy('destroy') --> can be used without callback
+          $('.auto-save').savy('destroy',function(){
+            console.log("All data from savy are Destroyed");
+            window.location.reload();
+          });
+        }   
+        </script>
    
 {% endblock %}

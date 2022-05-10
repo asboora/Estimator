@@ -1,27 +1,53 @@
 {% extends 'header.html' %}
+{% load static %}
 {% block content %}
+
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     
         <title>Add Customer</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=0">
-        <link rel="stylesheet" href="">
+        
+        
     </head>
     <body>
-        
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/style1.css' %}"> 
+    <div class ="mainarea" >
+               
         <form action="" method="post" novalidate>
         {% csrf_token %}
         {% for fm0 in form %}
+        {{fm0.label_tag}}
         {{fm0}}
-        {{fm0.label_tag}}<br>
+        <br><br>
         {{fm0.errors|striptags}}
         {% endfor %} 
-        <input type='submit' value = "Submit">
+        
+        <input type='submit' value = "Submit"><br><br>
         </form>
+        <h3 class='auto-save'> This page estimate = {{estimate}} </h3>
+    </div>
+    
     </body>
   
 </html>
+<script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/savy.min.js' %}"></script>
+<script type="text/javascript">
+
+    //$('.auto-save').savy('load') --> can be used without callback
+   
+    $('.auto-save').savy('load',function(){
+         console.log("All data from savy are loaded");
+    });
+        
+    
+    function dstry(){
+      //$('.auto-save').savy('destroy') --> can be used without callback
+      $('.auto-save').savy('destroy',function(){
+        console.log("All data from savy are Destroyed");
+        window.location.reload();
+      });
+    }   
+    </script>
 {% endblock %}

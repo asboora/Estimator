@@ -1,18 +1,26 @@
 
 {% extends 'header.html' %}
-
+{% load static %}
 {% block content %}
 
 <div>
-    <form action="" method="post" novalidate>
-    {% csrf_token %}        
-    {% for fm23 in form %}
-    {{fm23.label_tag}}
-        {{fm23}}
-    {% endfor %} 
+
+    {% csrf_token %} 
+    <h3> Permit = ${{Permit|floatformat:2}}</h3> 
+    <h3> Dumpster = ${{Dumpster|floatformat:2}}</h3> 
+    <h3> Framing = ${{Framing|floatformat:2}}</h3> 
+    <h3> HVAC = ${{HVAC|floatformat:2}}</h3> 
+    <h3> Plumbing = ${{Plumbing|floatformat:2}}</h3> 
+    <h3> Electrical = ${{Electrical|floatformat:2}}</h3> 
+    <h3> Drywall = ${{Drywall|floatformat:2}}</h3> 
+    <h3> Trim = ${{Trim|floatformat:2}}</h3> 
+    <h3> Paint = ${{Paint|floatformat:2}}</h3> 
+    <h3> Countertop = ${{Countertop|floatformat:2}}</h3>
+    <h3> Floor = ${{Floor|floatformat:2}}</h3>
+    <h3> Carpet = ${{Carpet|floatformat:2}}</h3> 
     
-    <input type='submit' value = "Submit">
-    </form>
+    
+    <h1> Final Estimate = ${{Estimate|floatformat:2}}</h1>         
     {% if messages %}
     {% for message in messages %}
     <small {% if messages.tags %} class = '{{ messages.tags }}' {% endif %}>{{message}}</small>

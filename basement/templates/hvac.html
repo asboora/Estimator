@@ -1,6 +1,6 @@
 
 {% extends 'header.html' %}
-
+{% load static %}
 {% block content %}
 
 <div>
@@ -12,16 +12,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=0">
         <link rel="stylesheet" href="">
     </head>
-    <div>
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/style1.css' %}"> 
+    <div class ="mainarea" >
         <form action="" method="post" novalidate>
         {% csrf_token %}    
         <h1> Framing Details </h1>    
         {% for fm3 in form %}
         {{fm3.label_tag}}
-            {{fm3}}
+            {{fm3}}<br><br>
         {% endfor %} 
         
         <input type='submit' value = "Submit">
+        <br> <br>
+        <h3> This page estimate = {{estimate|floatformat:2}} </h3>
         </form>
         {% if messages %}
         {% for message in messages %}

@@ -1,17 +1,21 @@
 
 {% extends 'header.html' %}
-
+{% load static %}
 {% block content %}
 
-<div>
+<link rel="stylesheet" type = "text/css" href="{% static 'css/style1.css' %}"> 
+<div class ="mainarea" >
     <form action="" method="post" novalidate>
     {% csrf_token %}        
     {% for fm10 in form %}
     {{fm10.label_tag}}
-        {{fm10}}
+        {{fm10}}<br><br>
     {% endfor %} 
     
     <input type='submit' value = "Submit">
+    <br>
+    <br>
+    <h3> This page estimate = {{estimate|floatformat:2}} </h3>
     </form>
     {% if messages %}
     {% for message in messages %}
@@ -19,5 +23,23 @@
     {% endfor %}
     {% endif %}
 </div>
+<script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/savy.min.js' %}"></script>
+<script type="text/javascript">
+
+    //$('.auto-save').savy('load') --> can be used without callback
    
+    $('.auto-save').savy('load',function(){
+         console.log("All data from savy are loaded");
+    });
+        
+    
+    function dstry(){
+      //$('.auto-save').savy('destroy') --> can be used without callback
+      $('.auto-save').savy('destroy',function(){
+        console.log("All data from savy are Destroyed");
+        window.location.reload();
+      });
+    }   
+    </script>   
 {% endblock %}
